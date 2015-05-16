@@ -7,17 +7,34 @@ import ca.jors.chess.objects.Board;
 import ca.jors.chess.objects.Constants;
 import ca.jors.chess.objects.Piece;
 import ca.jors.chess.objects.Square;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
-import java.awt.*;
-import java.awt.event.ContainerAdapter;
 import java.util.LinkedList;
 
 public class Chess {
     public Colors currentPlayer = Colors.WHITE;
 	public Board board = new Board(Constants.BOARD_SIZE);
-    public PieceFactory pieceFactory = new PieceFactory(this);
+    public PieceFactory pieceFactory;
     public LinkedList<Piece> pieces = new LinkedList<Piece>();
+
+    public Chess() {
+        this.pieceFactory = new PieceFactory(this);
+        this.initPieces();
+        this.placePieces();
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Happy World " + Pieces.KING);
+
+        Chess chess = new Chess();
+
+        System.out.println(chess.pieces.getFirst().canTravel(new Square(7, 7)));
+
+        System.out.println(new Square(0, 0).toString());
+
+        System.out.println(new Square("a1").toString());
+
+    }
 
 	public void initPieces(){
         int a =0;
@@ -34,25 +51,6 @@ public class Chess {
         for (Piece piece : pieces)
             this.board.pieces[piece.square.x][piece.square.y]=piece;
     }
-
-
-	public Chess(){
-		this.initPieces();
-        this.placePieces();
-
-	}
-	
-	
-	public static void main(String[]args){
-		System.out.println("Happy World " + Pieces.KING);
-
-		Chess chess = new Chess();
-
-		System.out.println(new Square(0,0).toString());
-
-		System.out.println(new Square("a1").toString());
-
-	}
 
     public Colors getOppositePlayer(){
         switch (this.currentPlayer){

@@ -13,7 +13,7 @@ public class PieceFactory {
 
     Chess chess ;
 
-    public PieceFactory(Chess ches){
+    public PieceFactory(Chess chess) {
         this.chess = chess;
     }
 
@@ -28,20 +28,19 @@ public class PieceFactory {
             case EMPTY:
                 break;
             case KING:
-                return new King(sq, color, chess);
+                return new King(sq, color, this.chess);
             case QUEEN:
-                return new Queen(sq, color, chess);
-
+                return new Queen(sq, color, this.chess);
             case ROOK:
                 break;
             case KNIGHT:
                 break;
             case BISHOP:
-                return new Bishop(sq, color, chess);
+                return new Bishop(sq, color, this.chess);
             case PAWN:
                 break;
         }
-        return new Bishop(sq,color,chess );//new Piece(piece,sq);
+        return new Bishop(sq, color, this.chess);//new Piece(piece,sq);
     }
 
 }

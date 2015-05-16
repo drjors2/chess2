@@ -13,12 +13,14 @@ public interface Constants {
     byte BOARD_SIZE = 8; // both x and y are the same
 
     Object[][] BOARDPIECES = {
-            {Pieces.ROOK, Colors.WHITE,"a1"},
+            {Pieces.BISHOP, Colors.WHITE, "a1"},
             {Pieces.KNIGHT, Colors.WHITE,"b1"},
             {Pieces.BISHOP, Colors.WHITE,"c1"},
             {Pieces.QUEEN, Colors.WHITE,"d1"},
             {Pieces.KING, Colors.WHITE,"e1"},
             {Pieces.BISHOP, Colors.WHITE,"f1"},
+            {Pieces.KNIGHT, Colors.WHITE, "g1"},
+            {Pieces.ROOK, Colors.WHITE, "h1"},
             {Pieces.KING, Colors.WHITE,"g1"},
             {Pieces.PAWN, Colors.WHITE,"a2"},
             {Pieces.PAWN, Colors.WHITE,"b2"},
