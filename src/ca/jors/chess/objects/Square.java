@@ -29,9 +29,14 @@ public class Square implements Cloneable{
 		return this.x == sq.x && this.y == sq.y;
 	}
 
-	public Square clone(){
-		return new Square(this.x , this.y);
-	}
+    public Square clone() throws CloneNotSupportedException {
+        try {
+            super.clone();
+            return new Square(this.x, this.y);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
 
 	public Square add(Square sq){
 		this.x += sq.x;
