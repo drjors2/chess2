@@ -4,7 +4,7 @@ import ca.jors.chess.Chess;
 import ca.jors.chess.enums.Colors;
 import ca.jors.chess.enums.Pieces;
 
-public class Piece {
+public abstract class Piece {
     public Chess chess;
 
 	public Square square;
@@ -17,8 +17,6 @@ public class Piece {
         this.chess = chess;
     }
 
-	public boolean canTravel(Square square) {
-		return square.isValid();
-	}
+    public abstract boolean canTravel(Square square);
 
 }
