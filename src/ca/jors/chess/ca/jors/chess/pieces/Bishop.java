@@ -13,10 +13,9 @@ public class Bishop extends LinearPiece {
     }
 
     public boolean canTravel(Square square) {
-        return (this.square.isValid() &&
-                (Math.abs(this.square.x - square.x) == Math.abs(this.square.y - square.y) && // check 45 degree travel
-                        this.square.x != square.x) &&
-                this.isFreeLane(square)
-        );
+        return this.square.isValid() &&
+                this.square.isSameDiagonal(square) &&
+                this.square.x != square.x &&
+                this.isFreeLane(square);
     }
 }

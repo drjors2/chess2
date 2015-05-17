@@ -59,4 +59,19 @@ public class Square implements Cloneable{
 		);
 	}
 
+    public boolean isSameRow(Square other) {
+        return (this.x == other.x);
+    }
+
+    public boolean isSameColumn(Square other) {
+        return (this.y == other.y);
+    }
+
+    public boolean isSameDiagonal(Square other) {
+        return (Math.abs(this.x - other.x) == Math.abs(this.y - other.y));
+    }
+
+    public int getKingDistance(Square other) {
+        return Math.max(Math.abs(this.x - other.x), Math.abs(this.y - other.y));
+    }
 }

@@ -12,12 +12,12 @@ public class Rook extends LinearPiece {
         super(sq.clone(), color, chess);
     }
 
-    public boolean canTravel(Square sq) {
+    public boolean canTravel(Square square) {
         return (this.square.isValid() &&
-                (((Math.abs(this.square.x - sq.x) > 0) && (this.square.y - sq.y == 0)) ||
-                        ((this.square.x - sq.x == 0) && (Math.abs(this.square.y - sq.y) > 0))) &&
-                (this.square.x != sq.x) &&
-                this.isFreeLane(sq)
+                (this.square.isSameColumn(square) ||
+                        this.square.isSameRow(square)) &&
+                !this.square.equals(square) &&
+                this.isFreeLane(square)
         );
     }
 }

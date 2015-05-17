@@ -14,15 +14,11 @@ public class Queen extends LinearPiece {
 
     public boolean canTravel(Square square) {
         return (square.isValid() &&
-                ( // either bishop move
-                        (Math.abs(this.square.x - this.square.x) == Math.abs(this.square.y - this.square.y) && // check 45 degree travel
-                                this.square.x != this.square.x)
-                                || // or rook move
-                                ((Math.abs(this.square.x - square.x) > 0) && (this.square.y - square.y == 0)) ||
-                                ((this.square.x - square.x == 0) && (Math.abs(this.square.y - square.y) > 0))) &&
-                this.isFreeLane(this.square)
+                (!this.square.equals(square) &&
+                        (this.square.isSameDiagonal(square) ||
+                                this.square.isSameRow(square) ||
+                                this.square.isSameColumn(square)) &&
+                        this.isFreeLane(this.square))
         );
     }
-
-
 }

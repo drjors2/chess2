@@ -15,7 +15,8 @@ public class King extends LinearPiece {
 
     public boolean canTravel(Square square) {
         return (square.isValid() &&
-                Math.max(Math.abs(this.square.x - square.x), Math.abs(this.square.y - square.y)) <= 1 && // limit one square travel
+                !this.square.equals(square) &&
+                this.square.getKingDistance(square) == 1 &&
                 this.isFreeLane(square));
     }
 

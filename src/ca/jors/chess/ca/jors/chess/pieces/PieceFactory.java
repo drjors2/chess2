@@ -26,15 +26,15 @@ public class PieceFactory {
         Piece p;
         switch(piece){
             case EMPTY:
-                break;
+                return null;
             case KING:
                 return new King(sq, color, this.chess);
             case QUEEN:
                 return new Queen(sq, color, this.chess);
             case ROOK:
-                break;
+                return new Rook(sq, color, this.chess);
             case KNIGHT:
-                break;
+                return new Knight(sq, color, this.chess);
             case BISHOP:
                 return new Bishop(sq, color, this.chess);
             case PAWN:
