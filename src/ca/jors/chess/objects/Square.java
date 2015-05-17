@@ -37,13 +37,20 @@ public class Square implements Cloneable{
 		this.x += sq.x;
 		this.y += sq.y;
 		return this;
-	};
+    }
 
-	public Square neg(){
-		this.x = -this.x;
+    public Square neg() {
+        this.x = -this.x;
 		this.y = -this.y;
 		return this;
 	}
+
+    public Square flip() {
+        int t = this.x;
+        this.x = this.y;
+        this.y = t;
+        return this;
+    }
 
 	public Square getDirection(Square other){
 		return new Square(
